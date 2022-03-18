@@ -6,4 +6,4 @@ for i in range(N):
     a,b =map(int,input().split())
     list.append(a+b)
 for j in range(N):
-    print(list[j])
+    print(list[j]) 
