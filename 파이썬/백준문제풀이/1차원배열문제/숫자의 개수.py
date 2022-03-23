@@ -25,4 +25,4 @@ C=int(sys.stdin.readline().strip())
 
 res =list(str(A*B*C))#리스트로 변환하고 0~9까지의 수 갯수 세준다!
 for i in range(10):
-    print(res.count(str(i)))
+    print(res.count(str(i))) #리스트 내부에 문자열로 배열 되어있으므로 찾을 떄도 문자열(i)로 찾아준다!
