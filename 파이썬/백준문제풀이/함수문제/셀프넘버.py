@@ -35,19 +35,17 @@ for k in sorted(a):
 '''
 #for문과 문자열을 활용하여 함수구현
 def d(n):
-    for n in range(101):
-        for j in str(n):
-            n+=int(j)
+    for i in str(n):
+        n+=int(i)
     return n
+
 #1~10000까지 반복문을 통해 리스트 구현
 a=[]
-for i in range(100+1):
+for i in range(10001):
     a.append(i)
 
-for k in range(100+1):
-    if d(k)<100:#결과값이 101이나오는 수가  
-        a.remove(d(k))
-    else: #10000넘어가는 숫자는 a(리스트)제 존재하지 않으므로 
-        continue
+for j in range(10001):
+    if d(j) in a:
+        a.remove(d(j))
     
 print(a)
