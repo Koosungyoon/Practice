@@ -33,7 +33,7 @@ a-=rmv
 for k in sorted(a):
     print(k)
 '''
-#for문과 문자열을 활용하여 함수구현
+#for문과 문자열을 활용하여 함수구현★★★
 def d(n):
     for i in str(n):
         n+=int(i)
@@ -43,9 +43,16 @@ def d(n):
 a=[]
 for i in range(10001):
     a.append(i)
+#or 
+'''
+a=list(range(10001))
+'''
 
 for j in range(10001):
-    if d(j) in a:
+    #remove함수는 삭제할 값이 없으면 오류 발생
+    #그래서 리스트안에 있으면 삭제!
+    if d(j) in a: 
         a.remove(d(j))
-    
-print(a)
+
+for k in a:
+    print(k)
