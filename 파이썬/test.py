@@ -1,9 +1,7 @@
-import sys
+import math
 
-S=sys.stdin.readline().strip()
-cro_alp =["c=","c-","dz=","d-","lj","nj","s=","z="]
+a, b, v = map(int, input().split())
+# a= 올라가는 길이, b= 떨어지는길이, v= 나무높이 
 
-for cro in cro_alp:
-    if cro in S: #예외 발생 -> ddz=z=이런 문자는 중복해서 셀 수있다.
-        S.replace(str(cro),"/")
-        print(S)    
+day = math.ceil((v-a)/(a-b)) + 1
+print(day)
