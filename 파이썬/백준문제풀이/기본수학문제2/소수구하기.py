@@ -31,6 +31,8 @@ for i in range(M,N+1):
 import math
 import sys
 def is_prime_num(x):
+    if x==1:
+        return False
     #2부터 x의 제곱근 까지 모든수 확인!
     for i in range(2,int(math.sqrt(x))+1):
         #x가 나누어 떨어지면 소수 아님
