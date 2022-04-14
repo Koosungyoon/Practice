@@ -46,7 +46,7 @@ for i in range(M,N+1):
     if is_prime_num(i):
         print(i)
 '''
-
+'''
 import sys
 
 M,N=map(int,sys.stdin.readline().strip().split())
@@ -60,7 +60,30 @@ for i in range(2,N+1):
 for k in prime:
     if k>=M:
         print(k)
-
+'''
 '''
 위의 코드는 N까지의 소수를 구한다음 -> M과N사이의 소수를 출력하게끔 구현!'''    
      
+
+#정수 n이 n의 제곱근 이하의 어떤 소수로도 나누어 떨어지지 않으면 n은 소수이다!
+import sys
+
+prime =[None]*500
+ptr=0
+
+prime[ptr]=2
+ptr+=1
+prime[ptr]=3
+ptr+=1
+for n in range(5,1001,2): #어차피 4이상의 짝수는 모두 합성수이므로 제외
+    i=1 #2는 짝수이므로 제외 하고 prime[1]부터 확인하는것 이다!
+    while prime[i]**2<=n: #이표현이 n이하의 제곱근이하의  -> n이하의 n제곱근 이면 실행 한다! 
+        if n%prime[i]==0:  
+            break
+        i+=1
+    else:                 #소수로 나누어떨어지지 않으면
+        prime[ptr]=n  
+        ptr+=1
+
+for i in range(ptr):
+    print(prime[i])
