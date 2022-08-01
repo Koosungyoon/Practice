@@ -1,7 +1,9 @@
 #DFS 메서드의 정의 
-from lib2to3.pgen2 import grammar
-
-
+'''
+DFS는 우선 스택 자료구조를 이용하여 나타낸다
+DFS는 시작노드에서 연결되어 있는 노드부터 방문하는데 방문하지 않은 노드라면 그 노드를 스택에 넣고 방문 처리를 한다.
+그러나 이미 방문한 노드라면 최상단에 잇는 노드를 꺼낸다. 
+'''
 def dfs(graph,v,visited):
     #현재노드의 방문 처리
     visited[v]=True
@@ -10,6 +12,11 @@ def dfs(graph,v,visited):
     for i in graph[v]:
         if not visited[i]:
             dfs(graph,i,visited)
+'''
+단순하게 dfs함수의 기능이 방문하는 곳은 방문했다고 False->True로 바꾸어준다고 생각하고
+인접노드들은 재귀를 이용하여 비교해보면 될것 이다.
+'''
+
 #각 노드가 연결된 정보를 리스트 자료형으로 표현(2차원 리스트)
 graph=[
     [],
