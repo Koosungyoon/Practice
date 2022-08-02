@@ -12,6 +12,7 @@ for i in range(n):
 
 #DFS로 특정한 노드를 방문한 뒤에 연결된 모든 노드들도 방문
 def dfs(x,y):
+    #범위를 넘어가는 것 처리
     if x<=-1 or x>=n or y<=-1 or y>=m:
         return False
     if graph[x][y]==0:
@@ -30,6 +31,18 @@ for i in range(n):
     for j in range(m):
         if dfs(i,j)==True:
             result+=1
-            print(i,j,"=",dfs(i,j))
 
+'''
+아무리 0이어도 이미 방문한 곳은 False이므로 카운트 되지 않는다. 이 점을 유의하고 코드를 작성 하자.
+0 0 = True
+0 1 = False
+0 2 = False
+1 0 = False
+1 1 = False
+1 2 = True
+2 0 = False
+2 1 = True
+2 2 = False
+결과가 다음과 같다.
+'''
 print(result)
