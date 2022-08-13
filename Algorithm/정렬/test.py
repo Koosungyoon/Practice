@@ -57,3 +57,36 @@ def quick_sort(arr,start,end):
 
 quick_sort(arr,0,len(arr)-1)
 print(arr)
+
+
+
+
+
+
+arr=[5,6,7,4,2,3,1,0,9,8]
+
+def quick_sort(arr):
+    if len(arr)<=1:
+        return arr
+
+    pivot=arr[0]
+    tail=arr[1:]
+
+    left_side=[x for x in tail if x<=pivot]
+    right_side=[x for x in tail if x>pivot]
+
+    return quick_sort(left_side)+pivot+quick_sort(right_side)
+
+# 계수 정렬 구현
+
+array=[5,7,9,0,3,1,6,2,4,8]
+#모든 범위를 포함하는 리스트 선언(리스트 값은 0으로 초기화)
+count=[0]*(max(array)+1) 
+
+for i in range(len(array)):
+    count[array[i]]+=1
+
+for i in range(len(count)):
+    for j in range(count[i]):
+        print(i,end=' ')
+    
