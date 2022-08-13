@@ -1,3 +1,4 @@
+'''
 #선택 정렬 
 
 
@@ -89,4 +90,57 @@ for i in range(len(array)):
 for i in range(len(count)):
     for j in range(count[i]):
         print(i,end=' ')
-    
+
+
+n=int(input())
+count=[0]*(n+1)
+
+for i in range(n):
+    count[int(input())]+=1
+
+for i in range(n):
+    if count[i] !=0:
+        for j in range(count[i]):
+            print(i)
+
+import sys
+from collections import Counter
+
+n=int(sys.stdin.readline())
+
+arr=[]
+for _ in range(n):
+    arr.append(int(sys.stdin.readline()))
+
+print(round(sum(arr)/n)) # 산술평균
+arr.sort()
+print((arr[(n//2)])) #중앙값
+#최빈값
+arr_cnt=Counter(arr).most_common()
+if len(arr_cnt)>1 and arr_cnt[0][1]==arr_cnt[1][1]:
+    print(arr_cnt[1][0])
+else:
+    print(arr_cnt[0][0])
+print(max(arr)-min(arr))
+
+import sys
+n=int(sys.stdin.readline())
+data=[]
+
+for _ in range(n):
+    input_data=sys.stdin.readline().split()
+    data.append((int(input_data[0]),input_data[1]))
+data=sorted(data,key=lambda a:a[0])
+
+for i in range(n):
+    print(data[i][0],data[i][1])
+'''
+import sys
+n=int(sys.stdin.readline())
+arr=list(map(int,sys.stdin.readline().split()))
+arr1=list(sorted(set(arr)))
+
+dic1={arr1[i]:i for i in range(len(arr1))}
+
+for i in arr:
+    print(dic1[i],end=' ')

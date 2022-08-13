@@ -92,5 +92,5 @@ for i in range(len(array)):
 
 for i in range(len(count)):
     for j in range(count[i]):
-        print(j,end=' ')
+        print(i,end=' ')
  
