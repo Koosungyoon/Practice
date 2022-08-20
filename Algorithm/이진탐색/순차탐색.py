@@ -1,3 +1,4 @@
+# 가장 단순한 탐색 코드이고, 시간복잡도는 O(N)으로 순차적으로 원소 하나하나를 비교해야하므로 시간 복잡도는 위와 같다.
 #순차 탐색 소스코드 구현   
 import sys
 def sequnential_search(n,target,arr):
@@ -14,4 +15,5 @@ targe_data=input_data[1]
 arr=sys.stdin.readline().split()
 
 print(sequnential_search(n,targe_data,arr))
+
 
