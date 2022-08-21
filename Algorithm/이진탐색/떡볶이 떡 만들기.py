@@ -1,27 +1,28 @@
 #떡볶이 떡을 손님이 요구하는 m길이 만큼 주기 위해서 우리가 설정해야하는 h값의 최대값을 구하라
-#나는 중앙값을 이용하여 구하고자 한다.
+#이진 탐색으로 범위를 좁힌다.
 
 import sys
 
-def sum_fnc(arr,mid):
-    sum=0
-    for i in arr:
-        if i-mid>0:
-            sum+=(i-mid)
-    return sum
-
 n,m=map(int,sys.stdin.readline().rstrip().split())
+#각 떡의 개별 높이 정보를 입력받기
 arr=list(map(int,sys.stdin.readline().rstrip().split()))
-arr.sort()
-sum1=0
-mid=arr[(len(arr)-1)//2]
-
-while True:
-    sum1=sum_fnc(arr,mid)
-    if sum1==m:
-        print(mid)
-        break
-    elif sum1>m:
-        mid+=1
+#이진 탐색을 위한 시작점과 끝점 설정
+start=0
+end=max(arr)
+#이진 탐색 수행(반복적)
+result=0
+while(start<=end):
+    total=0
+    mid=(start+end)//2
+    for i in arr:
+        #잘랐을 떄의 떡의 양 계산
+        if i>mid:
+           total+=(i-mid)
+    #떡의 양이 부족한 경우 더 많이 자르기(왼쪽 부분 탐색)
+    if total<m:
+        end=mid-1
+    #떡의 양이 많은 경우 더 적게 자르기(오른쪽 부분 탐색)
     else:
-        mid-=1
+        result=mid #최대한 덜 잘랐을 떄가 정답이므로, 여기에서 result에 기록
+        start=mid+1 
+print(result)
