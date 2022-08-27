@@ -73,6 +73,7 @@ def heapsort(iterable):
 result=heapsort([1,3,5,7,9,2,4,6,8,0])
 print(result)
 
+
 #개선된 다익스트라 알고리즘 소스코드
 import sys
 import heapq
@@ -102,11 +103,11 @@ def dijkstra(start):
         #가장 최단 거리가 짧은 노드에 대한 정보 꺼내기
         dist,now=heapq.heappop(q)
         #현재 노드가 이미 처리된 저이 있는 노드라면 무시
-        if distance[now] <dist:
+        if distance[now]<dist:
             continue
         #현재 노드와 연결된 다른 인접한 노드를 확인
         for i in graph[now]:
-            cost=dist+i[1]
+            cost=dist+i[1]#-> 힙자료구조에서 꺼낸 원소의 (거리)요소+ 현재 노드와 i[0]노드와 연결된 간선
             #현재 노드를 거쳐서, 다른 노드로 이동하는거리가 더 짧은 경우
             if cost<distance[i[0]]:
                 distance[i[0]]=cost
@@ -115,3 +116,11 @@ def dijkstra(start):
 #다익스트라 알고리을 수행
 dijkstra(start)
 
+#모든 노드로 가기 위한 최단 거리를 출력
+for i in range(1,n+1):
+    #도달할 수 없는 경우, 무한 이라고 출력
+    if distance[i]==INF:
+        print("INFINITY")
+    #도달할 수 있는 경우 거리를 출력!
+    else:
+        print(distance[i])
