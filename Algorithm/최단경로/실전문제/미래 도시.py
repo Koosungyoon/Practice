@@ -26,4 +26,4 @@ distance=graph[1][k]+graph[k][x]
 if distance>=INF:
     print(-1)
 else:
-    print(distance)
+    print(distance) 
