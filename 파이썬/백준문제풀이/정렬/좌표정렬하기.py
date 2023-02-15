@@ -13,4 +13,3 @@ for i in range(N):
 for i in sorted(tmp):
     print(i[0],i[1])
 
-sorted(tmp,lambda )
