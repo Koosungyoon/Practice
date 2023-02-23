@@ -12,8 +12,6 @@ for i in range(N):
     # res_len.append(len(tmp))
 res1 = set(list(map(tuple,res)))
 res_sorted = sorted(res1)
-print(res1)
-print("\n")
 
 for a in sorted(res_sorted,key = lambda x: x[1]):
     print(a[0])
