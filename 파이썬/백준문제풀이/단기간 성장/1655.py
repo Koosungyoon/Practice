@@ -1,7 +1,7 @@
-# import sys
-# import heapq
+import sys
+import heapq
 
-# input = sys.stdin
+input = sys.stdin
 #time out
 # n = int(input.readline().strip())
 # res = []
@@ -10,29 +10,30 @@
 #     res.append(num)
 #     res.sort()
 #     print(res[i//2])
-# n = int(input.readline().strip())
+n = int(input.readline().strip())
 
-# leftheap = []
-# rightheap = []
-# res = []
-# for i in range(n):
-#     num = int(input.readline().strip())
+leftheap = []
+rightheap = []
+res = []
 
-#     if len(leftheap) == len(rightheap):
-#         heapq.heappush(leftheap,(-num,num))
-#     else:
-#         heapq.heappush(rightheap,(num,num))
+for i in range(n):
+    num = int(input.readline().strip())
+
+    if len(leftheap) == len(rightheap):
+        heapq.heappush(leftheap,(-num,num))
+    else:
+        heapq.heappush(rightheap,(num,num))
     
-#     if rightheap and leftheap[0][1] > rightheap[0][0]:
-#         min = heapq.heappop(rightheap)[0]
-#         max = heapq.heappop(leftheap)[1]
-#         heapq.heappop(leftheap,(-min,min))
-#         heapq.heappop(rightheap,(max,max))
+    if rightheap and leftheap[0][1] > rightheap[0][1]:
+        min = heapq.heappop(rightheap)[0]
+        max = heapq.heappop(leftheap)[1]
+        heapq.heappop(leftheap,(-min,min))
+        heapq.heappop(rightheap,(max,max))
     
-#     res.append(leftheap[0][1])
+    res.append(leftheap[0][1])
 
-# for j in res:
-#     print(j)
+for j in res:
+    print(j)
     
 '''
 최대 힙 만들기
